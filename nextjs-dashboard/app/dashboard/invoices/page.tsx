@@ -25,7 +25,9 @@ export default async function Page(props: {
     const query = searchParams?.query || '';
     const currentPage = Number(searchParams?.page) || 1;
     const totalPages = await fetchInvoicesPages(query);
-
+    /* Search и Pagination - клиентские компоненты, которые меняют URL,
+       как говорилось выше, при смене URL происходит ререндер данного серверного компонента
+       и меняется содержимое Table*/
     return (
         <div className="w-full">
             <div className="flex w-full items-center justify-between">
